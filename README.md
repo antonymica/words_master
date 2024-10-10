@@ -9,7 +9,7 @@ Une application web pour générer et rechercher des mots à partir de lettres f
 - Téléchargement des résultats sous forme de fichier texte.
 - Interface utilisateur conviviale avec des effets visuels.
 
-## Installation
+## Installation en local
 
 1. Clonez le dépôt sur votre machine locale :
    ```bash
@@ -32,6 +32,20 @@ Une application web pour générer et rechercher des mots à partir de lettres f
     ```
 
 2. Ouvrez votre navigateur et accédez à `http://127.0.0.1:5000`.
+
+## Installation utilisant Docker
+
+1. Clonez le dépôt sur votre machine locale :
+   ```bash
+   docker pull antonymica/words_master:latest
+   ```
+
+2. Exécutez l'application Flask :
+    ```bash
+    docker run -d --name words_master -p 5000:5000 antonymica/words_master
+    ```
+    
+3. Ouvrez votre navigateur et accédez à `http://127.0.0.1:5000`.
 
 ## Contribuer
 
