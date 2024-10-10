@@ -1,0 +1,162 @@
+body {
+    background-color: #1a1a1a; /* Arrière-plan sombre */
+    color: #e0e0e0; /* Couleur du texte */
+    font-family: 'Courier New', Courier, monospace; /* Police monospace */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #2c3e50; /* Couleur de fond de la boîte */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="text"],
+input[type="file"] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #16a085; /* Bordure verte */
+    border-radius: 5px;
+    background-color: #34495e; /* Couleur de fond des champs */
+    color: #ecf0f1; /* Couleur du texte */
+}
+
+input[type="text"]::placeholder {
+    color: #95a5a6; /* Couleur du placeholder */
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #27ae60; /* Vert pour les boutons */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+}
+
+.resultats-scrollable {
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond sombre et transparent */
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.resultats ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.resultats li {
+    padding: 5px;
+    border-bottom: 1px solid #16a085; /* Bordure des mots */
+}
+
+.resultats li:last-child {
+    border-bottom: none; /* Pas de bordure pour le dernier élément */
+}
+
+.message {
+    color: #e74c3c; /* Couleur rouge pour les messages d'erreur */
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    padding: 10px 20px; /* Augmentation de l'espacement intérieur */
+    border: none; /* Suppression de la bordure par défaut */
+    border-radius: 5px; /* Bords arrondis */
+    background-color: #27ae60; /* Couleur de fond verte */
+    color: white; /* Couleur du texte */
+    font-weight: bold; /* Texte en gras */
+    font-size: 16px; /* Taille du texte */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition pour le changement de couleur et de taille */
+    cursor: pointer; /* Curseur en forme de main */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour donner du relief */
+}
+
+.btn:hover {
+    background-color: #16a085; /* Change la couleur au survol */
+    transform: translateY(-2px); /* Légère élévation lors du survol */
+}
+
+.btn-hover {
+    background-color: #1abc9c; /* Couleur d'animation */
+    transform: scale(1.05); /* Légère augmentation de taille */
+}
+
+.download-btn {
+    background-color: #2980b9; /* Couleur de fond pour le bouton de téléchargement */
+    padding: 10px 20px; /* Espacement intérieur pour le bouton de téléchargement */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour le bouton de téléchargement */
+}
+
+.download-btn:hover {
+    background-color: #3498db; /* Couleur au survol pour le bouton de téléchargement */
+    transform: translateY(-2px); /* Légère élévation lors du survol */
+}
+
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: #2c3e50;
+    margin: auto; /* Centrer horizontalement */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 400px; /* Taille réduite */
+    color: #ecf0f1;
+    border-radius: 5px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}

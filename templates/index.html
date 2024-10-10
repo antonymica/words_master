@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Words Master</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Words Master</h1>
+        <form method="POST" enctype="multipart/form-data" class="form">
+            <label for="lettres">Entrez les lettres :</label>
+            <input type="text" id="lettres" name="lettres" required placeholder="Exemple: ABCD">
+            
+            <label for="dictionnaire">Choisissez un fichier dictionnaire :</label>
+            <input type="file" id="dictionnaire" name="dictionnaire" accept=".txt" required>
+            
+            <button type="submit" class="btn"><i class="fas fa-search"></i> Rechercher</button>
+            <button type="button" class="btn" id="reset-btn"><i class="fas fa-times"></i> Annuler</button>
+        </form>
+
+        <!-- Modal for displaying results -->
+        <div id="result-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="close-modal">&times;</span>
+                <h2>Mots valides trouvés :</h2>
+                <div class="resultats-scrollable">
+                    <ul id="result-list">
+                        {% if mots_valides %}
+                            {% for mot in mots_valides %}
+                                <li>{{ mot }}</li>
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                </div>
+                <a href="{{ url_for('download') }}" class="btn download-btn"><i class="fas fa-download"></i> Télécharger les résultats</a>
+                {% if message %}
+                    <p class="message">{{ message }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".btn").hover(function(){
+                $(this).toggleClass("btn-hover");
+            });
+
+            // Show modal if valid words are found
+            {% if mots_valides %}
+                $("#result-modal").css("display", "block");
+            {% endif %}
+
+            // Close modal
+            $("#close-modal").on("click", function() {
+                $("#result-modal").css("display", "none");
+            });
+
+            // Reset search bar
+            $("#reset-btn").on("click", function() {
+                $("#lettres").val("");
+                $("#dictionnaire").val("");
+                $("#result-list").empty();
+                $("#result-modal").css("display", "none");
+            });
+        });
+
+        // Close modal if clicked outside of modal content
+        $(window).on("click", function(event) {
+            if ($(event.target).is("#result-modal")) {
+                $("#result-modal").css("display", "none");
+            }
+        });
+    </script>
+</body>
+</html>
